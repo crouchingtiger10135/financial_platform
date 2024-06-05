@@ -13,6 +13,7 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->boolean('identity_verified')->default(false);
+            $table->boolean('status_708')->default(false);
             $table->timestamps();
         });
     }

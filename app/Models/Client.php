@@ -9,10 +9,11 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'identity_verified'];
-
-    public function documents()
-    {
-        return $this->hasMany(Document::class);
-    }
+    protected $fillable = [
+        'name',
+        'email',
+        'identity_verified',
+        'status_708',
+    ];
 }
+

@@ -10,10 +10,12 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('client_id');
             $table->string('document_name');
             $table->string('document_path');
             $table->timestamps();
+
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
         });
     }
 

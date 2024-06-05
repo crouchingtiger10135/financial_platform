@@ -17,20 +17,12 @@ class DocumentController extends Controller
 
         $path = $request->file('document')->store('documents');
 
-        Document::create([
-            'client_id' => $request->client_id,
+        $document = Document::create([
+            'client_id' => $validated['client_id'],
             'document_name' => $request->file('document')->getClientOriginalName(),
             'document_path' => $path,
         ]);
 
         return redirect()->back()->with('success', 'Document uploaded successfully!');
-    }
-
-    public function destroy(Document $document)
-    {
-        Storage::delete($document->document_path);
-        $document->delete();
-
-        return redirect()->back()->with('success', 'Document removed successfully!');
     }
 }

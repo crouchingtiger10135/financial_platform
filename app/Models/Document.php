@@ -9,10 +9,10 @@ class Document extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['client_id', 'document_name', 'document_path'];
-
-    public function client()
-    {
-        return $this->belongsTo(Client::class);
-    }
+    protected $fillable = [
+        'client_id',
+        'document_name',
+        'document_path',
+    ];
 }
+
